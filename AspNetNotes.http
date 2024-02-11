@@ -1,0 +1,6 @@
+@AspNetNotes_HostAddress = http://localhost:5280
+
+GET {{AspNetNotes_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
