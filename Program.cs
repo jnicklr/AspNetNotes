@@ -1,3 +1,5 @@
+using AspNetNotes.Data;
+
 namespace AspNetNotes
 {
     public class Program
@@ -6,15 +8,12 @@ namespace AspNetNotes
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddAuthorization();
+            builder.Services.AddControllers();
+            builder.Services.AddDbContext<DataContext>();
 
             var app = builder.Build();
 
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-            app.MapGet("/", (HttpContext httpContext) => "Hello World");
+            app.MapControllers();
 
             app.Run();
         }
